@@ -24,7 +24,8 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import getPersistentIdentifier from 'rn-unique-identifier';
+
+import UniqueIdentifier from 'rn-unique-identifier/js/NativeUniqueIdentifier'
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -32,9 +33,9 @@ type SectionProps = PropsWithChildren<{
 
 function Section({children, title}: SectionProps): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
-  const id = getPersistentIdentifier()
-  console.log("id", id)
-  return (
+  console.log("UniqueIdentifier", UniqueIdentifier)
+  console.log("UID", UniqueIdentifier?.getPersistentIdentifier())
+      return (
     <View style={styles.sectionContainer}>
       <Text
         style={[
